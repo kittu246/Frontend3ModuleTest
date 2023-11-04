@@ -81,9 +81,18 @@ function getUserLocation (){
 
 function showPosition (position){
 
+   if(position){
+
     let mapDiv = document.getElementById("map");
     mapDiv.innerHTML=`
     <iframe src="https://maps.google.com/maps?q=${position.coords.latitude}, ${position.coords.longitude}&z=15&output=embed"  ></iframe>`
+
+   }
+   else{
+    console.log("not shown");
+   }
+
+   
 
 }
 
