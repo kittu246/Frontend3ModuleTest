@@ -48,6 +48,10 @@ async function fetchdata() {
         getUserLocation ();
         
 
+        let mapDiv = document.getElementById("map");
+        mapDiv.innerHTML=`
+        <iframe src="https://maps.google.com/maps?q=${data.latitude}, ${data.longitude}&z=15&output=embed"  ></iframe>`
+
 
   } catch (err) {
     console.log(err);
@@ -83,9 +87,10 @@ function showPosition (position){
 
    if(position){
 
-    let mapDiv = document.getElementById("map");
-    mapDiv.innerHTML=`
-    <iframe src="https://maps.google.com/maps?q=${position.coords.latitude}, ${position.coords.longitude}&z=15&output=embed"  ></iframe>`
+    // let mapDiv = document.getElementById("map");
+    // mapDiv.innerHTML=`
+    // <iframe src="https://maps.google.com/maps?q=${position.coords.latitude}, ${position.coords.longitude}&z=15&output=embed"  ></iframe>`
+    console.log("success");
 
    }
    else{
@@ -97,6 +102,7 @@ function showPosition (position){
 }
 
 getUserLocation();
+
 
 function getUserTimedate(timezone) {
   let current_datetime_str = new Date().toLocaleString("en-US", {
